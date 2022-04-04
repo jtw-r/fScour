@@ -1,0 +1,20 @@
+{
+  "name": "fscour",
+  "version": "1.0.0",
+  "description": "fScour - Filesystem Scourer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtw-r/fScour.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jtw-r/fScour/issues"
+  },
+  "homepage": "https://github.com/jtw-r/fScour#readme"
+}
