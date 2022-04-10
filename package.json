@@ -4,7 +4,7 @@
   "description": "fScour - Filesystem Scourer",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ts-node src/index.ts ."
   },
   "repository": {
     "type": "git",
