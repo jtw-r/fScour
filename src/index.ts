@@ -2,69 +2,26 @@
 
 import * as fs from "fs";
 import * as path from "path";
-
-enum PRINT_CHARS {
-  Empty = "|",
-  Directory = "+-+",
-  File = "+--"
-}
-
-type FSEntry = {
-  name: string;
-  type: PRINT_CHARS;
-  depth: number;
-  hidden: boolean;
-};
+import {map_directory_contents, print_directory_contents} from "./methods";
+import {PRINT_CHARS} from "./types/PRINT_CHARS";
 
 const argv = process.argv.slice(2);
-const scour_depth = 5;
+
+let base_dir_path: string;
 
 if (argv.length == 0 ) {
-  console.error("No directory passed");
-  process.exit(1);
+  // No directory passed, set it to current working directory
+  base_dir_path = process.cwd();
+} else {
+  base_dir_path = path.resolve(argv[0]);
 }
 
-const dir_path = path.resolve(argv[0])
-
-fs.readdir(dir_path, {withFileTypes: true}, ((err, files) => {
-  if (err) {
-    console.error(err);
-  }
-  output(handle_dir_contents(files));
-}))
-
-function get_dirent_type(object: fs.Dirent): PRINT_CHARS {
-  if (object.isDirectory()) {
-    return PRINT_CHARS.Directory;
-  } else if (object.isFile()) {
-    return PRINT_CHARS.File;
-  } else {
-    return PRINT_CHARS.Empty;
-  }
-}
-
-function handle_dir_contents(files: fs.Dirent[]): FSEntry[] {
-  let _return: FSEntry[] = []
-
-  for (let file_index = 0; file_index < files.length; file_index++) {
-    let _f_name = files[file_index].name;
-    let _f_type = get_dirent_type(files[file_index]);
-    let _f_depth = 0;
-    let _f_hidden = false; //TODO: Look for a .gitignore file and use the data from that to conditionally flip this
-
-    _return.push({name: _f_name, type: _f_type, depth: _f_depth, hidden: _f_hidden});
-  }
-
-  return _return;
-}
-
-function output(files: FSEntry[]): void {
+// Check to make sure that the path passed exists, and is a valid directory!
+if (fs.existsSync(base_dir_path) && fs.lstatSync(base_dir_path).isDirectory()) {
   console.log("fScour results:");
-  console.log(`+ ${path.basename(dir_path)}/`);
+  console.log(`+ ${path.basename(base_dir_path)}/`);
   console.log(PRINT_CHARS.Empty);
-  for (const file of files) {
-    if (!file.hidden) {
-      console.log(`${file.type} ${file.name}`);
-    }
-  }
+  print_directory_contents(map_directory_contents(base_dir_path));
+} else {
+  console.error(`Invalid directory passed: ${base_dir_path}`);
 }
