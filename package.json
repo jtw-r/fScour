@@ -4,7 +4,7 @@
   "description": "fScour - Filesystem Scourer",
   "main": "src/index.ts",
   "scripts": {
-    "test": "ts-node src/index.ts ."
+    "test": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,8 @@
     "url": "https://github.com/jtw-r/fScour/issues"
   },
   "homepage": "https://github.com/jtw-r/fScour#readme",
-  "devDependencies": {
+  "dependencies": {
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
-  },
-  "dependencies": {
-    "@types/yargs": "^17.0.10",
-    "yargs": "^17.4.0"
   }
 }
