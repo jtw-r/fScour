@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "fScour - Filesystem Scourer",
   "main": "dist/index.js",
+  "bin": "dist/index.js",
   "scripts": {
     "test": "ts-node src/index.ts",
     "build": "scripts/build.sh"
