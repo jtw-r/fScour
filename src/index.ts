@@ -1,4 +1,4 @@
-#!urs/bin/env ts-node
+#!usr/bin/evn node
 
 import * as fs from "fs";
 import * as path from "path";
