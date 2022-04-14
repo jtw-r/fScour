@@ -2,8 +2,8 @@
   "name": "fscour",
   "version": "1.0.0",
   "description": "fScour - Filesystem Scourer",
-  "main": "dist/index.js",
-  "bin": "dist/index.js",
+  "main": "src/index.ts",
+  "bin": "dist/fScour.js",
   "scripts": {
     "test": "ts-node src/index.ts",
     "build": "scripts/build.sh"
