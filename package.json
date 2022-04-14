@@ -2,9 +2,10 @@
   "name": "fscour",
   "version": "1.0.0",
   "description": "fScour - Filesystem Scourer",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "ts-node src/index.ts"
+    "test": "ts-node src/index.ts",
+    "build": "scripts/build.sh"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "dependencies": {
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.34"
   }
 }
