@@ -1,6 +1,6 @@
 {
   "name": "fscour",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "fScour - Filesystem Scourer",
   "main": "src/index.ts",
   "bin": "dist/fScour.js",
